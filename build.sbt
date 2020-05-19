@@ -3,8 +3,12 @@ organization := "io.redbee.zelig"
 
 version := "1.0-SNAPSHOT"
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala)
+lazy val root = (project in file("."))
+  .enablePlugins(PlayScala)
+  .aggregate(common)
+  .dependsOn(common)
 
+lazy val common = (project in file("common"))
 scalaVersion := "2.13.2"
 
 libraryDependencies += guice

@@ -1,6 +1,8 @@
 package controllers
 
 import javax.inject._
+
+import common.Common1
 import play.api._
 import play.api.mvc._
 
@@ -19,6 +21,9 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents) e
    * a path of `/`.
    */
   def index() = Action { implicit request: Request[AnyContent] =>
+
+    println(Common1("A", 1))
+
     Ok(views.html.index())
   }
 }
